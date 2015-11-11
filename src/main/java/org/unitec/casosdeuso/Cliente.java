@@ -13,8 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.NamedQueries;
-//import javax.persistence.NamedQuery;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,35 +24,38 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "cliente")
+
 public class Cliente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_usuario")
-    private Integer idUsuario;
+    @Column(name = "id_cliente")
+    private Integer idCliente;
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "apellido_paterno")
     private String apellidoPaterno;
     @Column(name = "email")
     private String email;
-    @OneToMany(mappedBy = "idUsuario")
+    @OneToMany(mappedBy = "idCliente")
     private Collection<Destino> destinoCollection;
+    @OneToMany(mappedBy = "idCliente")
+    private Collection<Tarjeta> tarjetaCollection;
 
     public Cliente() {
     }
 
-    public Cliente(Integer idUsuario) {
-        this.idUsuario = idUsuario;
+    public Cliente(Integer idCliente) {
+        this.idCliente = idCliente;
     }
 
-    public Integer getIdUsuario() {
-        return idUsuario;
+    public Integer getIdCliente() {
+        return idCliente;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getNombre() {
@@ -87,10 +90,18 @@ public class Cliente implements Serializable {
         this.destinoCollection = destinoCollection;
     }
 
+    public Collection<Tarjeta> getTarjetaCollection() {
+        return tarjetaCollection;
+    }
+
+    public void setTarjetaCollection(Collection<Tarjeta> tarjetaCollection) {
+        this.tarjetaCollection = tarjetaCollection;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idUsuario != null ? idUsuario.hashCode() : 0);
+        hash += (idCliente != null ? idCliente.hashCode() : 0);
         return hash;
     }
 
@@ -101,7 +112,7 @@ public class Cliente implements Serializable {
             return false;
         }
         Cliente other = (Cliente) object;
-        if ((this.idUsuario == null && other.idUsuario != null) || (this.idUsuario != null && !this.idUsuario.equals(other.idUsuario))) {
+        if ((this.idCliente == null && other.idCliente != null) || (this.idCliente != null && !this.idCliente.equals(other.idCliente))) {
             return false;
         }
         return true;
@@ -109,7 +120,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "org.unitec.casosdeuso.Cliente[ idUsuario=" + idUsuario + " ]";
+        return "org.unitec.casosdeuso.Cliente[ idCliente=" + idCliente + " ]";
     }
     
 }

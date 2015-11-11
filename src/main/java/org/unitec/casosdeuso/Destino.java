@@ -6,7 +6,6 @@
 package org.unitec.casosdeuso;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,9 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-//import javax.persistence.NamedQueries;
-//import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -40,11 +38,9 @@ public class Destino implements Serializable {
     private String hotel;
     @Column(name = "num_personas")
     private Integer numPersonas;
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
     @ManyToOne
-    private Cliente idUsuario;
-    @OneToMany(mappedBy = "idDestino")
-    private Collection<Tarjeta> tarjetaCollection;
+    private Cliente idCliente;
 
     public Destino() {
     }
@@ -85,20 +81,12 @@ public class Destino implements Serializable {
         this.numPersonas = numPersonas;
     }
 
-    public Cliente getIdUsuario() {
-        return idUsuario;
+    public Cliente getIdCliente() {
+        return idCliente;
     }
 
-    public void setIdUsuario(Cliente idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public Collection<Tarjeta> getTarjetaCollection() {
-        return tarjetaCollection;
-    }
-
-    public void setTarjetaCollection(Collection<Tarjeta> tarjetaCollection) {
-        this.tarjetaCollection = tarjetaCollection;
+    public void setIdCliente(Cliente idCliente) {
+        this.idCliente = idCliente;
     }
 
     @Override

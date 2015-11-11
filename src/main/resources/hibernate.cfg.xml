@@ -7,5 +7,8 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:8889/mysql?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
+    <mapping class="org.unitec.casosdeuso.Cliente"></mapping>
+    <mapping class="org.unitec.casosdeuso.Destino"></mapping>
+    <mapping class="org.unitec.casosdeuso.Tarjeta"></mapping>
   </session-factory>
 </hibernate-configuration>

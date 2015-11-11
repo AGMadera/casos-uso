@@ -31,12 +31,20 @@ public class DAOReservacion {
         tranza.commit();
         sesion.close();
     }
+    /*
+    public void abrir(){
+        sesionFactory=HibernateUtilidades.getSessionFactory();
+        sesion=sesionFactory.openSession();
+        tranza=sesion.beginTransaction();  
+    }*/
     
-    public void guardarReservacion(Cliente c,Destino d, Tarjeta t)throws Exception{
+    public void guardarReservacion(Cliente c, Tarjeta t, Destino d)throws Exception{
+        //abrir();
         sesion.save(c);
-        sesion.save(d);
         sesion.save(t);
+        sesion.save(d);
         cerrarTodo();
+  
     }
     
     

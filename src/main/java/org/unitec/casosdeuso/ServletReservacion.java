@@ -51,7 +51,7 @@ public class ServletReservacion extends HttpServlet {
             t.setSaldo(120000f);
             t.setNumeroTarjeta(123456789);
             
-            dao.guardarReservacion(c, d, t);
+            dao.guardarReservacion(c,t, d);
             ArrayList<Cliente> clientes=dao.buscarTodos();
             
         } catch (Exception e) {

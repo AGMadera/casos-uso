@@ -14,8 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-//import javax.persistence.NamedQueries;
-//import javax.persistence.NamedQuery;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -39,9 +39,9 @@ public class Tarjeta implements Serializable {
     private Float saldo;
     @Column(name = "numero_tarjeta")
     private Integer numeroTarjeta;
-    @JoinColumn(name = "id_destino", referencedColumnName = "id_destino")
+    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
     @ManyToOne
-    private Destino idDestino;
+    private Cliente idCliente;
 
     public Tarjeta() {
     }
@@ -82,12 +82,12 @@ public class Tarjeta implements Serializable {
         this.numeroTarjeta = numeroTarjeta;
     }
 
-    public Destino getIdDestino() {
-        return idDestino;
+    public Cliente getIdCliente() {
+        return idCliente;
     }
 
-    public void setIdDestino(Destino idDestino) {
-        this.idDestino = idDestino;
+    public void setIdCliente(Cliente idCliente) {
+        this.idCliente = idCliente;
     }
 
     @Override
