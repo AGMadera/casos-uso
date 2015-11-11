@@ -23,12 +23,14 @@ public class prueba {
             Destino d = new Destino();
             Tarjeta t = new Tarjeta();
             
-            c.setNombre("Juan");
-            c.setApellidoPaterno("Campos");
-            c.setEmail("rapidclimategmail.com");
+            c.setNombre("Alfonso");
+            c.setApellidoPaterno("Madera");
+            c.setEmail("agmadera@proton.com");
+            d.setIdCliente(c);          
             d.setCiudad("Huatulco");
             d.setHotel("hotel Bahías Huatulco");
-            d.setNumPersonas(2);         
+            d.setNumPersonas(2);  
+            t.setIdCliente(c);
             t.setNombreTarjeta("tarjeta de nómina Banamex ");
             t.setSaldo(120000f);
             t.setNumeroTarjeta(123456789);
