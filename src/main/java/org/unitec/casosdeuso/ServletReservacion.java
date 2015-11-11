@@ -34,13 +34,22 @@ public class ServletReservacion extends HttpServlet {
         try {
             response.setContentType("text/html;charset=UTF-8");
             PrintWriter out = response.getWriter();
+            
             DAOReservacion dao=new DAOReservacion();
+            
             Cliente c = new Cliente();
             Destino d = new Destino();
             Tarjeta t = new Tarjeta();
+            
+            c.setNombre("Juan");
             c.setApellidoPaterno("Campos");
-            d.setCiudad("Neza");
-            t.setNombreTarjeta("saxas");
+            c.setEmail("rapidclimategmail.com");
+            d.setCiudad("Huatulco");
+            d.setHotel("hotel Bahías Huatulco");
+            d.setNumPersonas(2);          
+            t.setNombreTarjeta("tarjeta de nómina Banamex ");
+            t.setSaldo(120000f);
+            t.setNumeroTarjeta(123456789);
             
             dao.guardarReservacion(c, d, t);
             ArrayList<Cliente> clientes=dao.buscarTodos();
